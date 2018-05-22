@@ -41,7 +41,7 @@ def write_lyrics_one_line(filename, line):
         f.write('\n')
 
 
-def read_kugou_annotation_chao_gang(filename):
+def read_kugou_annotation_chao_gang(filename, fmt):
     """
     Convert kugou annotation chao gang to list
     :param filename:
@@ -52,7 +52,7 @@ def read_kugou_annotation_chao_gang(filename):
         list_annotation = []
         for line in content:
             line_split = line.rstrip().split('\t')
-            list_annotation.append([mmss_2_ss(line_split[0]), mmss_2_ss(line_split[1]), line_split[2]])
+            list_annotation.append([mmss_2_ss(line_split[0], fmt), mmss_2_ss(line_split[1], fmt), line_split[2]])
     return list_annotation
 
 

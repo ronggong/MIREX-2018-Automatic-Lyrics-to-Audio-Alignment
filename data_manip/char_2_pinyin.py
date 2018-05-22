@@ -34,14 +34,14 @@ def segment_lyrics_convert_pinyin_kugou_clean():
         segmentation_conversion_helper(fn, list_line, 'annotation')
 
 
-def segment_lyrics_convert_pinyin_kugou_separation():
-    folder_train_kugou = os.path.join(mandarin_kugou_root, 'train_10_separation')
+def segment_lyrics_convert_pinyin_kugou_separation(folder_input, folder_output, fmt):
+    folder_train_kugou = os.path.join(mandarin_kugou_root, folder_input)
     filenames_train_kugou = list(set(get_filenames_in_folder(folder_train_kugou)))
     for fn in filenames_train_kugou:
         print(fn)
         fn_txt = os.path.join(folder_train_kugou, fn+'.txt')
-        list_line = read_kugou_annotation_chao_gang(fn_txt)
-        segmentation_conversion_helper(fn, list_line, 'annotation_separation')
+        list_line = read_kugou_annotation_chao_gang(fn_txt, fmt)
+        segmentation_conversion_helper(fn, list_line, folder_output)
 
 
 def segment_lyric_convert_pinyin_mir1k():
@@ -62,6 +62,9 @@ def segment_lyric_convert_pinyin_mir1k():
         except UnicodeDecodeError:
             print(fn)
 
-#
-# if __name__ == '__main__':
-#     segment_lyric_convert_pinyin_mir1k()
+
+if __name__ == '__main__':
+    segment_lyrics_convert_pinyin_kugou_separation(folder_input='train_10_2_clean',
+                                                   folder_output='annotation_2_clean',
+                                                   fmt=1)
+    # segment_lyric_convert_pinyin_mir1k()
