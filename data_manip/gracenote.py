@@ -32,9 +32,11 @@ for ii in range(1, 8):
                                   'song'+str(ii)+'.txt')
     with open(filename_write, 'w') as f:
         for line in list_groundtruth[1:]:
-            f.write('\t'.join([line[4], line[0]])+'\n')
+            syllable = line[0].rstrip().lower()
+            if syllable not in string.punctuation:
+                syllable = ''.join([s for s in syllable if s not in string.punctuation])
+                f.write('\t'.join([line[5], syllable])+'\n')
 
-            syllable = line[0].rstrip()
             if len(syllable) > 0 and syllable not in string.punctuation:
                 num_syllable += 1
 

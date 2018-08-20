@@ -11,27 +11,29 @@ from utils.file_manip import read_mir1k_lyrics
 from utils.textgrid_parser import textgrid_2_word_list
 
 
-def segmentation_conversion_helper(fn, list_line, sub_folder):
+def segmentation_conversion_helper(fn, list_line, sub_folder, phrase_syllable="phrase"):
     list_line_char = [[line[0], line[1], ' '.join(fool.cut(line[2])[0])] for line in list_line if
                       len(line[2].replace(" ", "")) > 0]
     list_line_pinyin = [[line[0], line[1], pinyin.get(line[2], format='strip', delimiter=' ')] for line in list_line if
                         len(line[2].replace(" ", "")) > 0]
-    write_line(filename=os.path.join(mandarin_kugou_root, sub_folder, fn + '_phrase_char.txt'),
+    write_line(filename=os.path.join(mandarin_kugou_root, sub_folder, fn + '_' + phrase_syllable + '_char.txt'),
                list_line=list_line_char)
-    write_line(filename=os.path.join(mandarin_kugou_root, sub_folder, fn + '_phrase_pinyin.txt'),
+    write_line(filename=os.path.join(mandarin_kugou_root, sub_folder, fn + '_' + phrase_syllable + '_pinyin.txt'),
                list_line=list_line_pinyin)
 
 
-def segment_lyrics_convert_pinyin_kugou_clean():
-    folder_train_kugou = os.path.join(mandarin_kugou_root, 'train_10_clean')
+def segment_lyrics_convert_pinyin_kugou_clean(folder_name, output_folder, tier):
+    folder_train_kugou = os.path.join(mandarin_kugou_root, folder_name)
     filenames_train_kugou = list(set(get_filenames_in_folder(folder_train_kugou)))
-    filenames_train_kugou.remove('songlist')
+
+    if "songlist" in filenames_train_kugou:
+        filenames_train_kugou.remove('songlist')
 
     # script to segment lyrics and convert to pinyin, don't run it again!
     for fn in filenames_train_kugou:
         fn_textgrid = os.path.join(folder_train_kugou, fn+'.textgrid')
-        list_line, _ = textgrid_2_word_list(textgrid_file=fn_textgrid, whichTier='line')
-        segmentation_conversion_helper(fn, list_line, 'annotation')
+        list_line, _ = textgrid_2_word_list(textgrid_file=fn_textgrid, whichTier=tier)
+        segmentation_conversion_helper(fn, list_line, output_folder, phrase_syllable="syllable")
 
 
 def segment_lyrics_convert_pinyin_kugou_separation(folder_input, folder_output, fmt):
@@ -64,7 +66,10 @@ def segment_lyric_convert_pinyin_mir1k():
 
 
 if __name__ == '__main__':
-    segment_lyrics_convert_pinyin_kugou_separation(folder_input='train_10_2_clean',
-                                                   folder_output='annotation_2_clean',
-                                                   fmt=1)
+    # segment_lyrics_convert_pinyin_kugou_separation(folder_input='train_10_2_clean',
+    #                                                folder_output='annotation_2_clean',
+    #                                                fmt=1)
     # segment_lyric_convert_pinyin_mir1k()
+    segment_lyrics_convert_pinyin_kugou_clean(folder_name="evaluation_10_separation",
+                                              output_folder="evaluation_10_separation",
+                                              tier="syllable")
