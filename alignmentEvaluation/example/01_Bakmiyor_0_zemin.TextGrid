@@ -1,0 +1,80 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 11.911836734693878 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 11.911836734693878 
+        intervals: size = 8 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.3868346503505165 
+            text = "" 
+        intervals [2]:
+            xmin = 0.3868346503505165 
+            xmax = 2.1534115781911862 
+            text = "bakmıyor" 
+        intervals [3]:
+            xmin = 2.1534115781911862 
+            xmax = 2.518910252916842 
+            text = "" 
+        intervals [4]:
+            xmin = 2.518910252916842 
+            xmax = 3.685025072279649 
+            text = "çeşmi" 
+        intervals [5]:
+            xmin = 3.685025072279649 
+            xmax = 5.128049886621315 
+            text = "siyah" 
+        intervals [6]:
+            xmin = 5.128049886621315 
+            xmax = 5.469006698916778 
+            text = "" 
+        intervals [7]:
+            xmin = 5.469006698916778 
+            xmax = 11.211717506007085 
+            text = "feryade" 
+        intervals [8]:
+            xmin = 11.211717506007085 
+            xmax = 11.911836734693878 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phrases" 
+        xmin = 0 
+        xmax = 11.911836734693878 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.3868346503505165 
+            text = "" 
+        intervals [2]:
+            xmin = 0.3868346503505165 
+            xmax = 2.1534115781911862 
+            text = "bakmıyor" 
+        intervals [3]:
+            xmin = 2.1534115781911862 
+            xmax = 2.518910252916842 
+            text = "" 
+        intervals [4]:
+            xmin = 2.518910252916842 
+            xmax = 5.128049886621315 
+            text = "çeşmi siyah" 
+        intervals [5]:
+            xmin = 5.128049886621315 
+            xmax = 5.469006698916778 
+            text = "" 
+        intervals [6]:
+            xmin = 5.469006698916778 
+            xmax = 11.211717506007085 
+            text = "feryade" 
+        intervals [7]:
+            xmin = 11.211717506007085 
+            xmax = 11.911836734693878 
+            text = "" 

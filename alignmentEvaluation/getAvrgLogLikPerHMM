@@ -1,0 +1,2 @@
+# get average log lik of model from result of HVite 
+ awk '{a=($2 - $1)/100000; if (a==0) print $0, 0; else  print $0, $4 / a}' /tmp/audioTur/20_Koklasam_Saclarini_nakarat_from_46_047599_to_59_716561.htkAlignedMlf

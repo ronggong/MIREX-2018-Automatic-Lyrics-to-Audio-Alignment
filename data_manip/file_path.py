@@ -2,6 +2,10 @@ mandarin_kugou_root = '/Users/ronggong/Documents_using/MTG_document/dataset/Lyri
 
 mir1k_root = '/Users/ronggong/Documents_using/MTG_document/dataset/MIR-1K'
 
+hansen_root = '/Users/ronggong/Documents_using/MTG_document/dataset/hansen_dataset'
+
+mauch_root = '/Users/ronggong/Documents_using/MTG_document/dataset/Lyrics2Audio_Dataset'
+
 gracenote_root = '/Users/ronggong/Documents_using/MTG_document/dataset/lyrics_dataset'
 
 jingju_part1_root = '/Users/ronggong/Documents_using/MTG_document/Jingju_arias/jingju_a_cappella_singing_dataset'
@@ -274,3 +278,97 @@ def get_recording_names_jingju_nacta_2017():
                       ['20170519XuJingWei', 'lsxp-Wo_zheng_zai-Kong_cheng_ji-renmin'],
                       ['20170519XuJingWei', 'lsxp-Yi_ma_li-Wu_jia_po-renmin']]
     return trainNacta2017, testNacta2017
+
+
+def get_kugou_filename():
+    clean = ['cheng_du.wav',
+             'gang_hao_yu_jian_ni.wav',
+             'li_ren_chou.wav',
+             'ping_fan_zhi_lu.wav',
+             'ti_mian.wav']
+    mix = ['ke_xi_bu_shi_ni.wav',
+           'tong_zhuo_de_ni.wav',
+           'ye_kong_zhong_zui_liang_de_xingxing.wav',
+           'yu_jian.wav',
+           'zhui_guang_zhe.wav']
+    return clean, mix
+
+
+def get_hansen_filename():
+    clean = [
+             # 'beautiful_stranger.wav',
+             # 'forca.wav',
+             'Madonna-Beautiful_Stranger_full_ending',
+             'i_kissed_a_girl.wav',
+             'clocks_cut.wav',
+             'rehab.wav',
+             'rolling_in_the_deep.wav',
+             'sunrise.wav',
+             'this_afternoon.wav',
+             'trick_me.wav',
+             'umbrella.wav',
+             'viva_la_vida.wav'
+            ]
+    # missing i_kissed_a_girl
+    mix = [
+           'Madonna-Beautiful_Stranger_full_ending',
+           'clocks_cut.wav',
+           'i_kissed_a_girl.wav',
+           'rehab.wav',
+           'rolling_in_the_deep.wav',
+           'sunrise.wav',
+           'this_afternoon.wav',
+           'trick_me.wav',
+           'umbrella.wav',
+           'viva_la_vida.wav']
+    return clean, mix
+
+
+def get_gracenote_filename():
+    mix = ['1979.wav',
+           'abba.wav',
+           'biggie.wav',
+           'daft_punk.wav',
+           'hand.wav',
+           'jackson.wav',
+           'metalica.wav',
+           'swift.wav',
+           'song1.wav',
+           'song2.wav',
+           'song3.wav',
+           'song4.wav',
+           'song5.wav',
+           'song6.wav',
+           'song7.wav']
+    clean = ['song1.wav',
+             'song2.wav',
+             'song3.wav',
+             'song4.wav',
+             'song5.wav',
+             'song6.wav',
+             'song7.wav']
+    return clean, mix
+
+
+def get_mauch_filename():
+    mix = ['Abba.KnowingMeKnowingYou.mp3',
+           'Bangles.EternalFlame.mp3',
+           'Blondie.CallMe.mp3',
+           'Duffy.WarwickAvenue.mp3',
+           'DuranDuran.OrdinaryWorld.mp3',
+           'FranzFerdinand.DoYouWantTo.mp3',
+           'Martika.ToySoldiers.mp3',
+           'Muse.GuidingLight.mp3',
+           'OtisRedding.TheDockOfTheBay.mp3',
+           'p082m.mp3',
+           'p084m.mp3',
+           'Queen.WeAreTheChampions.mp3',
+           'RobertPalmer.AddictedToLove.mp3',
+           'Santana.BlackMagicWoman.mp3',
+           'SimonAndGarfunkel.Cecilia.mp3',
+           'TakeThat.BackForGood.mp3',
+           'TinaTurner.WhatsLoveGotToDoWithIt.mp3',
+           'Toto.Africa.mp3',
+           'U2.WithOrWithoutYou.mp3',
+           'Zweieck.She.mp3']
+    return mix

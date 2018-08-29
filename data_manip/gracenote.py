@@ -34,7 +34,10 @@ for ii in range(1, 8):
         for line in list_groundtruth[1:]:
             syllable = line[0].rstrip().lower()
             if syllable not in string.punctuation:
-                syllable = ''.join([s for s in syllable if s not in string.punctuation])
+                if syllable[0] in string.punctuation:
+                    syllable = syllable[1:]
+                if syllable[-1] in string.punctuation:
+                    syllable = syllable[:-1]
                 f.write('\t'.join([line[5], syllable])+'\n')
 
             if len(syllable) > 0 and syllable not in string.punctuation:

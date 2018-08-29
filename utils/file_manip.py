@@ -28,6 +28,33 @@ def write_line(filename, list_line):
             f.write('\n')
 
 
+def write_line_num_col(filename, list_line, num_col):
+    """
+    Write a list of lines into filename, line by line
+    :param filename:
+    :param list_line:
+    :return:
+    """
+    with open(filename, "w") as f:
+        for line in list_line:
+            if num_col == 3:
+                f.write(line[0]+'\t'+line[1]+'\t'+line[2])
+            elif num_col == 2:
+                f.write(line[0]+'\t'+line[1])
+            f.write('\n')
+
+
+def write_line_level_annotation(filename, list_words):
+    """
+    Line level annotation for evaluation
+    :param filename:
+    :param list_words:
+    :return:
+    """
+    with open(filename, "w") as f:
+        f.write(' '.join(list_words))
+
+
 def write_lyrics_one_line(filename, line):
     """
     Write line into filename
@@ -67,6 +94,21 @@ def read_kugou_annotation_rong(filename):
         list_annotation = []
         for line in content:
             line_split = line.rstrip().split('\t')
+            list_annotation.append(line_split)
+    return list_annotation
+
+
+def read_word_annotation(filename):
+    """
+    Convert annotation
+    :param filename:
+    :return:
+    """
+    with open(filename, "r") as f:
+        content = f.readlines()
+        list_annotation = []
+        for line in content:
+            line_split = line.rstrip().split()
             list_annotation.append(line_split)
     return list_annotation
 
