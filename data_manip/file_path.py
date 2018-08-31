@@ -298,7 +298,7 @@ def get_hansen_filename():
     clean = [
              # 'beautiful_stranger.wav',
              # 'forca.wav',
-             'Madonna-Beautiful_Stranger_full_ending',
+             'Madonna-Beautiful_Stranger_full_ending.wav',
              'i_kissed_a_girl.wav',
              'clocks_cut.wav',
              'rehab.wav',
@@ -311,7 +311,7 @@ def get_hansen_filename():
             ]
     # missing i_kissed_a_girl
     mix = [
-           'Madonna-Beautiful_Stranger_full_ending',
+           'Madonna-Beautiful_Stranger_full_ending.mp3',
            'clocks_cut.wav',
            'i_kissed_a_girl.wav',
            'rehab.wav',
@@ -320,12 +320,14 @@ def get_hansen_filename():
            'this_afternoon.wav',
            'trick_me.wav',
            'umbrella.wav',
-           'viva_la_vida.wav']
+           'viva_la_vida.wav'
+           ]
     return clean, mix
 
 
 def get_gracenote_filename():
-    mix = ['1979.wav',
+    mix = [
+           '1979.wav',
            'abba.wav',
            'biggie.wav',
            'daft_punk.wav',
@@ -340,18 +342,21 @@ def get_gracenote_filename():
            'song5.wav',
            'song6.wav',
            'song7.wav']
-    clean = ['song1.wav',
+    clean = [
+             'song1.wav',
              'song2.wav',
              'song3.wav',
              'song4.wav',
              'song5.wav',
              'song6.wav',
-             'song7.wav']
+             'song7.wav'
+    ]
     return clean, mix
 
 
 def get_mauch_filename():
-    mix = ['Abba.KnowingMeKnowingYou.mp3',
+    mix = [
+           'Abba.KnowingMeKnowingYou.mp3',
            'Bangles.EternalFlame.mp3',
            'Blondie.CallMe.mp3',
            'Duffy.WarwickAvenue.mp3',

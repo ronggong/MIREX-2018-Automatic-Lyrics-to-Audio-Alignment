@@ -96,13 +96,19 @@ if __name__ == "__main__":
 
     for r in mix_hansen:
         fn = os.path.splitext(r)[0]
+        if fn == 'Madonna-Beautiful_Stranger_full_ending':
+            col_word = 1
+            num_col = 2
+        else:
+            col_word = 2
+            num_col = 3
         full_fn_annotation = os.path.join(path_mix_hansen, fn+'.wordonset.tsv')
         list_annotation = read_kugou_annotation_rong(full_fn_annotation)
-        list_annotation_removed = remove_special_char(list_annotation, col_word=2)
-        list_words = concatenate_words_2_list(list_annotation_removed, col_word=2)
+        list_annotation_removed = remove_special_char(list_annotation, col_word=col_word)
+        list_words = concatenate_words_2_list(list_annotation_removed, col_word=col_word)
 
         full_fn_annotation_word_corrected = os.path.join(path_mix_hansen, fn+'_word_corrected.txt')
-        write_line_num_col(filename=full_fn_annotation_word_corrected, list_line=list_annotation_removed, num_col=3)
+        write_line_num_col(filename=full_fn_annotation_word_corrected, list_line=list_annotation_removed, num_col=num_col)
 
         full_fn_annotation_line = os.path.join(path_mix_hansen, fn + '_line_pinyin.txt')
         write_line_level_annotation(filename=full_fn_annotation_line, list_words=list_words)
